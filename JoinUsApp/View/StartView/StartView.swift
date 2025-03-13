@@ -15,7 +15,7 @@ class StartView: UIView {
         button.setTitle("시작하기", for: .normal)
         button.setTitleColor(.black, for: .normal) // 명확한 색상 지정
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        button.backgroundColor = .red
+        button.backgroundColor = .blue
         return button
     }()
     
