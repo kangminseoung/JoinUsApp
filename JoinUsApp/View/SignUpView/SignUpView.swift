@@ -16,6 +16,25 @@ class SignUpView: UIView {
     let nicknameTextField = UITextField()
     let signUpButton = UIButton(type: .system)
     
+    // 설명 라벨 추가
+    private let emailInfoLabel: UILabel = {
+        let label = UILabel()
+        label.text = "이메일: 6~20자, 영문 소문자 및 숫자만 가능, 숫자로 시작 불가, @ 포함 필수"
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .gray
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private let passwordInfoLabel: UILabel = {
+        let label = UILabel()
+        label.text = "비밀번호: 최소 8자 이상, 영문자 및 숫자 포함 필수"
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .gray
+        label.numberOfLines = 0
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -41,7 +60,9 @@ class SignUpView: UIView {
         signUpButton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         
         let stackView = UIStackView(arrangedSubviews: [
-            emailTextField, passwordTextField, confirmPasswordTextField, nicknameTextField, signUpButton
+            emailTextField, emailInfoLabel,
+            passwordTextField, passwordInfoLabel,
+            confirmPasswordTextField, nicknameTextField, signUpButton
         ])
         stackView.axis = .vertical
         stackView.spacing = 12
